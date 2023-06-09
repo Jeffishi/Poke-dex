@@ -1,10 +1,25 @@
-let pokemonList = [
-  //database of pokemon for pokedex//
-  { name: "Bulbasaur", height: 0.7, type: ["grass", "poison"], HP: 45 },
-  { name: "Charmander", height: 0.6, type: ["Fire"], HP: 39 },
-  { name: "Squirtle", height: 0.5, type: ["Water"], HP: 44 },
-  { name: "Abra", height: 0.9, type: ["psychic"], HP: 25 },
-];
+let PokemonReposity = (function () {
+  let pokemonList = [
+    //database of pokemon for pokedex//
+    { name: "Bulbasaur", height: 0.7, type: ["grass", "poison"], HP: 45 },
+    { name: "Charmander", height: 0.6, type: ["Fire"], HP: 39 },
+    { name: "Squirtle", height: 0.5, type: ["Water"], HP: 44 },
+    { name: "Abra", height: 0.9, type: ["psychic"], HP: 25 },
+  ];
+
+  function add(pokemon) {
+    pokemonList.push(pokemon);
+  }
+
+  function getAll() {
+    return pokemonList;
+  }
+
+  return {
+    add: add,
+    getAll: getAll,
+  };
+})();
 
 /*for (let i = 0; i < pokemonList.length; i++) {
   if (pokemonList[i].height <= 0.5) {
@@ -74,4 +89,6 @@ function myloopfunction(aList) {
     );
   }
 }
-pokemonList.forEach(myloopfunction);
+/*pokemonList.forEach(myloopfunction);*/
+
+PokemonReposity.getAll().forEach(myloopfunction);
