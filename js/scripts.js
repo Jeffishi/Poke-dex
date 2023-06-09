@@ -6,7 +6,7 @@ let pokemonList = [
   { name: "Abra", height: 0.9, type: ["psychic"], HP: 25 },
 ];
 
-for (let i = 0; i < pokemonList.length; i++) {
+/*for (let i = 0; i < pokemonList.length; i++) {
   if (pokemonList[i].height <= 0.5) {
     document.write(
       pokemonList[i].name +
@@ -39,3 +39,39 @@ for (let i = 0; i < pokemonList.length; i++) {
     );
   }
 }
+*/
+
+function myloopfunction(aList) {
+  if (aList.height <= 0.5) {
+    document.write(
+      aList.name +
+        " " +
+        "(Height: " +
+        aList.height +
+        ")" +
+        " -That's a small size pokemon! " +
+        "<br><br>"
+    );
+  } else if (aList.height > 0.5 && aList.height <= 0.8) {
+    document.write(
+      aList.name +
+        " " +
+        "(Height: " +
+        aList.height +
+        ")" +
+        " -That's an avergae size pokemon! " +
+        "<br><br>"
+    );
+  } else {
+    document.write(
+      aList.name +
+        " " +
+        "(Height: " +
+        aList.height +
+        ")" +
+        " -That's a Big pokemon! " +
+        "<br><br>"
+    );
+  }
+}
+pokemonList.forEach(myloopfunction);
