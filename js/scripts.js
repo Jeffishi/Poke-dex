@@ -1,4 +1,4 @@
-let PokemonReposity = (function () {
+let PokemonRepository = (function () {
   let pokemonList = [
     //database of pokemon for pokedex//
     { name: "Bulbasaur", height: 0.7, type: ["grass", "poison"], HP: 45 },
@@ -15,80 +15,69 @@ let PokemonReposity = (function () {
     return pokemonList;
   }
 
+  function showDetails(pokemon) {
+    console.log(pokemon);
+  }
+
+  function addListItem(pokemon) {
+    let pokemonDeck = document.querySelector(".pokemon-list");
+    let listpokemon = document.createElement("li");
+    let button = document.createElement("button");
+    button.innerText = pokemon.name;
+    button.classList.add("button-class");
+    listpokemon.appendChild(button);
+    pokemonDeck.appendChild(listpokemon);
+
+    button.addEventListener("click", function () {
+      showDetails(pokemon);
+    });
+  }
+
   return {
     add: add,
     getAll: getAll,
+    addListItem: addListItem,
   };
 })();
 
-/*for (let i = 0; i < pokemonList.length; i++) {
-  if (pokemonList[i].height <= 0.5) {
+/*function myloopfunction(pokemon) {
+  console.log(pokemon);
+  if (pokemon.height <= 0.5) {
     document.write(
-      pokemonList[i].name +
+      pokemon.name +
         " " +
         "(Height: " +
-        pokemonList[i].height +
+        pokemon.height +
         ")" +
         " -That's a small size pokemon! " +
         "<br><br>"
     );
-  } else if (pokemonList[i].height > 0.5 && pokemonList[i].height <= 0.8) {
+  } else if (pokemon.height > 0.5 && pokemon.height <= 0.8) {
     document.write(
-      pokemonList[i].name +
+      pokemon.name +
         " " +
         "(Height: " +
-        pokemonList[i].height +
+        pokemon.height +
         ")" +
         " -That's an avergae size pokemon! " +
         "<br><br>"
     );
   } else {
     document.write(
-      pokemonList[i].name +
+      pokemon.name +
         " " +
         "(Height: " +
-        pokemonList[i].height +
+        pokemon.height +
         ")" +
         " -That's a Big pokemon! " +
         "<br><br>"
     );
   }
 }
-*/
-
-function myloopfunction(aList) {
-  if (aList.height <= 0.5) {
-    document.write(
-      aList.name +
-        " " +
-        "(Height: " +
-        aList.height +
-        ")" +
-        " -That's a small size pokemon! " +
-        "<br><br>"
-    );
-  } else if (aList.height > 0.5 && aList.height <= 0.8) {
-    document.write(
-      aList.name +
-        " " +
-        "(Height: " +
-        aList.height +
-        ")" +
-        " -That's an avergae size pokemon! " +
-        "<br><br>"
-    );
-  } else {
-    document.write(
-      aList.name +
-        " " +
-        "(Height: " +
-        aList.height +
-        ")" +
-        " -That's a Big pokemon! " +
-        "<br><br>"
-    );
-  }
-}
-/*pokemonList.forEach(myloopfunction);*/
 
 PokemonReposity.getAll().forEach(myloopfunction);
+*/
+
+PokemonRepository.getAll().forEach(function (pokemon) {
+  PokemonRepository.addListItem(pokemon);
+});
